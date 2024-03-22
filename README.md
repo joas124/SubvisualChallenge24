@@ -13,6 +13,10 @@ This React application is developed as part of Subvisual's coding challenge. It 
 - **Automated Tests**: The application includes automated tests for reliability and correctness.
 - **Optional Caching Mechanism**: An optional caching mechanism is implemented to optimize performance.
 
+## Deployment 🌐
+
+The site is deployed at: [https://joas124.github.io/SubvisualChallenge24/](https://joas124.github.io/SubvisualChallenge24/) utilizing GitHub Pages.
+
 ## Setup 🔧
 
 ### Prerequisites 📋
