@@ -19,6 +19,7 @@ function App() {
   }
 
   const searchPokemon = (idOrName) => {
+    document.getElementById('input').value = '';
     const cacheKey = idOrName;
 
     // Check if the data is already cached
@@ -72,10 +73,10 @@ function App() {
     <div className="App">
       <nav>
         <img src='https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg' alt='Pokemon logo' />
-        <h3>by: Joás</h3>
+        <h1>Searcher</h1>
       </nav>
       <main>
-        <h1>Search Pokedex:</h1>
+        <h2>Search Pokedex:</h2>
         <Query pokemonData={pokemonData} status={status} previous={previous} next={next} />
         <div className='search'>
           <input type='text' placeholder='Name/Id' id='input' className='input-bar' onChange={(i) => setInput(i.target.value)}
@@ -86,6 +87,10 @@ function App() {
             }} />
           <button className='search' onClick={() => searchPokemon(input)}>Search</button>
         </div>
+        {/* write made by joas at the bottom */}
+        <footer>
+          <p>Made by Joás Silva</p>
+        </footer>
       </main>
     </div>
   );
