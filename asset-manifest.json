@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SubvisualChallenge24/static/css/main.ef079aca.css",
+    "main.js": "/SubvisualChallenge24/static/js/main.784566e7.js",
+    "index.html": "/SubvisualChallenge24/index.html",
+    "main.ef079aca.css.map": "/SubvisualChallenge24/static/css/main.ef079aca.css.map",
+    "main.784566e7.js.map": "/SubvisualChallenge24/static/js/main.784566e7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef079aca.css",
+    "static/js/main.784566e7.js"
+  ]
+}
