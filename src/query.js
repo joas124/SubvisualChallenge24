@@ -5,8 +5,10 @@ class Query extends React.Component {
     super(props);
   }
 
+
+
   render() {
-    const {pokemonData, status} = this.props;
+    const {pokemonData, status, previous, next} = this.props;
     
     switch(status){
       case(0):
@@ -14,12 +16,14 @@ class Query extends React.Component {
           <div></div>
         );
       case(1):
-        
-        const {name, sprites} = pokemonData;
+        const {id, name, sprites} = pokemonData;
         return (
           <div>
             <h1>Name: {name[0].toUpperCase() + name.slice(1)}</h1>
             <img src={sprites.front_default} alt={name}></img>
+            <h3>Id: {id}</h3>
+            <button onClick={previous}>Previous</button>
+            <button onClick={next}>Next</button>
           </div>
         );
       case(-1):

@@ -12,8 +12,26 @@ class App extends React.Component{
     };
   }
 
-  searchPokemon = () => {
-    const api = `https://pokeapi.co/api/v2/pokemon/${this.state.input.toLowerCase()}`
+  previous = () => {
+    const id = this.state.pokemonData.id - 1;
+    if(id > 0) this.searchPokemon(id);
+  }
+
+  next = () => {
+    const api = this.state.pokemonData.id + 1;
+    if (api < 1026) this.searchPokemon(api);
+  }
+
+  searchPokemon = (id) => {
+    let api = 'https://pokeapi.co/api/v2/pokemon/';
+    //check if id is a number
+
+    if (!isNaN(id)){
+      api += id;
+    }else{
+      api += this.state.input.toLowerCase();
+    }
+    console.log(api);
 
     fetch(api)
       .then(response => {
@@ -45,7 +63,7 @@ class App extends React.Component{
         <h1>Search Pokedex:</h1>
         <input type="text" id="input" onChange={(i) => this.setState({input: i.target.value})} />
         <button onClick={this.searchPokemon}>Search</button>
-        <Query pokemonData={this.state.pokemonData} status={this.state.status} />
+        <Query pokemonData={this.state.pokemonData} status={this.state.status} previous={this.previous} next={this.next} />
       </div>
   )};
 }
