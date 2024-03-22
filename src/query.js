@@ -14,6 +14,7 @@ class Query extends React.Component {
           <div></div>
         );
       case(1):
+        
         const {name, sprites} = pokemonData;
         return (
           <div>

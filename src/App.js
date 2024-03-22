@@ -35,7 +35,7 @@ class App extends React.Component{
         this.setState({pokemonData: data, status: 1});
       })
       .catch(error => {
-        this.setState({pokemonData: null, status: -2})
+        console.error('Error:', error);
       });
   }
 
