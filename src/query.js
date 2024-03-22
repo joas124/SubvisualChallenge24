@@ -1,45 +1,46 @@
 import React from "react";
 
-class Query extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
-
-
-  render() {
-    const {pokemonData, status, previous, next} = this.props;
-    
+export function Query({pokemonData, status, previous, next}) {
+  
     switch(status){
-      case(0):
-        return(
-          <div></div>
-        );
       case(1):
-        const {id, name, sprites} = pokemonData;
         return (
-          <div>
-            <h1>Name: {name[0].toUpperCase() + name.slice(1)}</h1>
-            <img src={sprites.front_default} alt={name}></img>
-            <h3>Id: {id}</h3>
-            <button onClick={previous}>Previous</button>
-            <button onClick={next}>Next</button>
+          <div className='container'>
+            <div className='name-id'>
+              <h3 className='pokemon-name'>
+                {pokemonData ? pokemonData.name[0].toUpperCase() + pokemonData.name.slice(1) : ''}
+              </h3>
+              <p className='id'>
+                {pokemonData ? pokemonData.id : ''}
+              </p>
+            </div>
+            <img src={pokemonData ? pokemonData.sprites.front_default : ''} alt={pokemonData ? pokemonData.name : ''} />
+            <div className='buttons'>
+                {/* Check if status is 1 to show buttons */}
+                {status === 1 &&
+                  <div>
+                    <button disabled={pokemonData && pokemonData.id === 1} onClick={previous}>Previous</button>
+                    <button disabled={pokemonData && pokemonData.id === 1025} onClick={next}>Next</button>
+                  </div>
+                }
+            </div>
           </div>
         );
       case(-1):
         return(
-          <div>
+          <div className='container'>
             <h1>POKEMON NOT FOUND</h1>
           </div>
         );
       case(-2):
         return(
-          <div>
+          <div className='container'>
             <h1>ERROR</h1>
           </div>
         );
+      default:
+        return(
+          <div className='container'></div>
+        );
     }
-  }
 }
-
-export default Query;
